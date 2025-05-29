@@ -118,10 +118,10 @@ namespace WindowMover
 
                         var handle = new IntPtr((int)dataGridViewWindows.Rows[i]?.Cells[1]?.Value);
                         RECT windowRectangle = new RECT();
-                        windowRectangle.Left = (int)dataGridViewWindows.Rows[i].Cells["Left"]?.Value;
-                        windowRectangle.Top = (int)dataGridViewWindows.Rows[i].Cells["Top"]?.Value;
-                        windowRectangle.Right = (int)dataGridViewWindows.Rows[i].Cells["Right"]?.Value;
-                        windowRectangle.Bottom = (int)dataGridViewWindows.Rows[i].Cells["Bottom"]?.Value;
+                        windowRectangle.Left = int.Parse(dataGridViewWindows.SelectedRows[i].Cells["Left"]?.Value.ToString());
+                        windowRectangle.Top = int.Parse(dataGridViewWindows.SelectedRows[i].Cells["Top"]?.Value.ToString());
+                        windowRectangle.Right = int.Parse(dataGridViewWindows.SelectedRows[i].Cells["Right"]?.Value.ToString());
+                        windowRectangle.Bottom = int.Parse(dataGridViewWindows.SelectedRows[i].Cells["Bottom"]?.Value.ToString());
                         if (handle != IntPtr.Zero)
                         {
                             MoveSpecificWindow(handle, windowRectangle.Left, windowRectangle.Top, Math.Abs(windowRectangle.Right-windowRectangle.Left),Math.Abs( windowRectangle.Bottom-windowRectangle.Top));
@@ -141,10 +141,10 @@ namespace WindowMover
                 var handle = new IntPtr((int)dataGridViewWindows.Rows[e.RowIndex].Cells[1].Value);
 
                 RECT windowRectangle = new RECT();
-                windowRectangle.Left = (int)dataGridViewWindows.Rows[e.RowIndex].Cells["Left"]?.Value;
-                windowRectangle.Top = (int)dataGridViewWindows.Rows[e.RowIndex].Cells["Top"]?.Value;
-                windowRectangle.Right = (int)dataGridViewWindows.Rows[e.RowIndex].Cells["Right"]?.Value;
-                windowRectangle.Bottom = (int)dataGridViewWindows.Rows[e.RowIndex].Cells["Bottom"]?.Value;
+                windowRectangle.Left = int.Parse(dataGridViewWindows.Rows[e.RowIndex].Cells["Left"]?.Value.ToString());
+                windowRectangle.Top = int.Parse(dataGridViewWindows.Rows[e.RowIndex].Cells["Top"]?.Value.ToString());
+                windowRectangle.Right = int.Parse(dataGridViewWindows.Rows[e.RowIndex].Cells["Right"]?.Value.ToString());
+                windowRectangle.Bottom = int.Parse(dataGridViewWindows.Rows[e.RowIndex].Cells["Bottom"]?.Value.ToString());
                 if (handle != IntPtr.Zero)
                 {
                     MoveSpecificWindow(handle, 0, 0, Math.Abs (windowRectangle.Right - windowRectangle.Left), Math.Abs (windowRectangle.Bottom - windowRectangle.Top));
@@ -201,7 +201,7 @@ namespace WindowMover
         private void splitSidewaysToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int count = dataGridViewWindows.SelectedRows.Count;
-            Rectangle rect = Screen.FromHandle(this.Handle).Bounds;
+            Rectangle rect = Screen.FromHandle(this.Handle).WorkingArea;
             int windowWidth = rect.Width / count;
             for (int i = 0; i < dataGridViewWindows.SelectedRows.Count; i++)
             {
@@ -217,7 +217,7 @@ namespace WindowMover
         private void splitHorizontallyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int count = dataGridViewWindows.SelectedRows.Count;
-            Rectangle rect = Screen.FromHandle(this.Handle).Bounds;
+            Rectangle rect = Screen.FromHandle(this.Handle).WorkingArea;
             int windowHeight = rect.Height / count;
             for (int i = 0; i < dataGridViewWindows.SelectedRows.Count; i++)
             {
@@ -293,6 +293,46 @@ namespace WindowMover
         private void BringtoFront(IntPtr handle)
         {
             ShowWindow(handle, SW_RESTORE);
+        }
+
+        private void applyCurrentSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int count = dataGridViewWindows.SelectedRows.Count;
+            for (int i = 0; i < dataGridViewWindows.SelectedRows.Count; i++)
+            {
+                var handle = new IntPtr((int)dataGridViewWindows.SelectedRows[i].Cells[1].Value);
+                if (handle != IntPtr.Zero)
+                {
+
+                    RECT windowRectangle = new RECT();
+                    windowRectangle.Left = int.Parse(dataGridViewWindows.SelectedRows[i].Cells["Left"]?.Value.ToString());
+                    windowRectangle.Top = int.Parse(dataGridViewWindows.SelectedRows[i].Cells["Top"]?.Value.ToString());
+                    windowRectangle.Right = int.Parse(dataGridViewWindows.SelectedRows[i].Cells["Right"]?.Value.ToString());
+                    windowRectangle.Bottom = int.Parse(dataGridViewWindows.SelectedRows[i].Cells["Bottom"]?.Value.ToString());
+                    MoveSpecificWindow(handle, windowRectangle.Left, windowRectangle.Top, windowRectangle.Right, windowRectangle.Bottom);
+
+                }
+            }
+        }
+
+        private void spreadAcrossAllScreensToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int count = dataGridViewWindows.SelectedRows.Count;
+            for (int i = 0; i < dataGridViewWindows.SelectedRows.Count; i++)
+            {
+                var handle = new IntPtr((int)dataGridViewWindows.SelectedRows[i].Cells[1].Value);
+                if (handle != IntPtr.Zero)
+                {
+                    
+                    RECT windowRectangle = new RECT();
+                    windowRectangle.Left = Screen.AllScreens.Min(selector=>selector.Bounds.Left);
+                    windowRectangle.Top = 0;
+                    windowRectangle.Right = Screen.AllScreens.Sum(selector=>selector.Bounds.Right);
+                    windowRectangle.Bottom = Screen.PrimaryScreen.WorkingArea.Height;
+                    MoveSpecificWindow(handle, windowRectangle.Left, windowRectangle.Top, windowRectangle.Right, windowRectangle.Bottom);
+
+                }
+            }
         }
     }
 }

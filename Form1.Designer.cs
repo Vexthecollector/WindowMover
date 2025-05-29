@@ -30,13 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridViewWindows = new System.Windows.Forms.DataGridView();
-            this.saveCurrentLayout = new System.Windows.Forms.Button();
-            this.loadLastLayout = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.splitSidewaysToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.splitHorizontallyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadLayoutFromFileButton = new System.Windows.Forms.Button();
-            this.saveLayoutAsFileButton = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Button = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -44,8 +37,17 @@
             this.Top = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Right = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Bottom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saveCurrentLayout = new System.Windows.Forms.Button();
+            this.loadLastLayout = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.splitSidewaysToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitHorizontallyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadLayoutFromFileButton = new System.Windows.Forms.Button();
+            this.saveLayoutAsFileButton = new System.Windows.Forms.Button();
+            this.applyCurrentSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.spreadAcrossAllScreensToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWindows)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -71,74 +73,6 @@
             this.dataGridViewWindows.TabIndex = 0;
             this.dataGridViewWindows.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWindows_CellContentClick);
             this.dataGridViewWindows.Click += new System.EventHandler(this.dataGridViewWindows_Click);
-            // 
-            // saveCurrentLayout
-            // 
-            this.saveCurrentLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.saveCurrentLayout.Location = new System.Drawing.Point(12, 347);
-            this.saveCurrentLayout.Name = "saveCurrentLayout";
-            this.saveCurrentLayout.Size = new System.Drawing.Size(121, 23);
-            this.saveCurrentLayout.TabIndex = 1;
-            this.saveCurrentLayout.Text = "Save Current Layout";
-            this.saveCurrentLayout.UseVisualStyleBackColor = true;
-            this.saveCurrentLayout.Click += new System.EventHandler(this.saveCurrentLayout_Click);
-            // 
-            // loadLastLayout
-            // 
-            this.loadLastLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.loadLastLayout.Location = new System.Drawing.Point(12, 376);
-            this.loadLastLayout.Name = "loadLastLayout";
-            this.loadLastLayout.Size = new System.Drawing.Size(121, 23);
-            this.loadLastLayout.TabIndex = 2;
-            this.loadLastLayout.Text = "Load Last Layout";
-            this.loadLastLayout.UseVisualStyleBackColor = true;
-            this.loadLastLayout.Click += new System.EventHandler(this.loadLastLayout_Click);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.splitSidewaysToolStripMenuItem,
-            this.splitHorizontallyToolStripMenuItem,
-            this.minimizeToolStripMenuItem,
-            this.restoreToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(165, 92);
-            // 
-            // splitSidewaysToolStripMenuItem
-            // 
-            this.splitSidewaysToolStripMenuItem.Name = "splitSidewaysToolStripMenuItem";
-            this.splitSidewaysToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.splitSidewaysToolStripMenuItem.Text = "Split Sideways";
-            this.splitSidewaysToolStripMenuItem.Click += new System.EventHandler(this.splitSidewaysToolStripMenuItem_Click);
-            // 
-            // splitHorizontallyToolStripMenuItem
-            // 
-            this.splitHorizontallyToolStripMenuItem.Name = "splitHorizontallyToolStripMenuItem";
-            this.splitHorizontallyToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.splitHorizontallyToolStripMenuItem.Text = "Split Horizontally";
-            this.splitHorizontallyToolStripMenuItem.Click += new System.EventHandler(this.splitHorizontallyToolStripMenuItem_Click);
-            // 
-            // loadLayoutFromFileButton
-            // 
-            this.loadLayoutFromFileButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.loadLayoutFromFileButton.Location = new System.Drawing.Point(213, 376);
-            this.loadLayoutFromFileButton.Name = "loadLayoutFromFileButton";
-            this.loadLayoutFromFileButton.Size = new System.Drawing.Size(121, 23);
-            this.loadLayoutFromFileButton.TabIndex = 4;
-            this.loadLayoutFromFileButton.Text = "Load Layout from File";
-            this.loadLayoutFromFileButton.UseVisualStyleBackColor = true;
-            this.loadLayoutFromFileButton.Click += new System.EventHandler(this.loadLayoutFromFileButton_Click);
-            // 
-            // saveLayoutAsFileButton
-            // 
-            this.saveLayoutAsFileButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.saveLayoutAsFileButton.Location = new System.Drawing.Point(213, 347);
-            this.saveLayoutAsFileButton.Name = "saveLayoutAsFileButton";
-            this.saveLayoutAsFileButton.Size = new System.Drawing.Size(121, 23);
-            this.saveLayoutAsFileButton.TabIndex = 3;
-            this.saveLayoutAsFileButton.Text = "Save Layout as File";
-            this.saveLayoutAsFileButton.UseVisualStyleBackColor = true;
-            this.saveLayoutAsFileButton.Click += new System.EventHandler(this.saveLayoutAsFileButton_Click);
             // 
             // Column1
             // 
@@ -188,19 +122,103 @@
             this.Bottom.Name = "Bottom";
             this.Bottom.Width = 65;
             // 
+            // saveCurrentLayout
+            // 
+            this.saveCurrentLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.saveCurrentLayout.Location = new System.Drawing.Point(12, 347);
+            this.saveCurrentLayout.Name = "saveCurrentLayout";
+            this.saveCurrentLayout.Size = new System.Drawing.Size(121, 23);
+            this.saveCurrentLayout.TabIndex = 1;
+            this.saveCurrentLayout.Text = "Save Current Layout";
+            this.saveCurrentLayout.UseVisualStyleBackColor = true;
+            this.saveCurrentLayout.Click += new System.EventHandler(this.saveCurrentLayout_Click);
+            // 
+            // loadLastLayout
+            // 
+            this.loadLastLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.loadLastLayout.Location = new System.Drawing.Point(12, 376);
+            this.loadLastLayout.Name = "loadLastLayout";
+            this.loadLastLayout.Size = new System.Drawing.Size(121, 23);
+            this.loadLastLayout.TabIndex = 2;
+            this.loadLastLayout.Text = "Load Last Layout";
+            this.loadLastLayout.UseVisualStyleBackColor = true;
+            this.loadLastLayout.Click += new System.EventHandler(this.loadLastLayout_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.splitSidewaysToolStripMenuItem,
+            this.splitHorizontallyToolStripMenuItem,
+            this.minimizeToolStripMenuItem,
+            this.restoreToolStripMenuItem,
+            this.applyCurrentSettingsToolStripMenuItem,
+            this.spreadAcrossAllScreensToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(209, 158);
+            // 
+            // splitSidewaysToolStripMenuItem
+            // 
+            this.splitSidewaysToolStripMenuItem.Name = "splitSidewaysToolStripMenuItem";
+            this.splitSidewaysToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.splitSidewaysToolStripMenuItem.Text = "Split Sideways";
+            this.splitSidewaysToolStripMenuItem.Click += new System.EventHandler(this.splitSidewaysToolStripMenuItem_Click);
+            // 
+            // splitHorizontallyToolStripMenuItem
+            // 
+            this.splitHorizontallyToolStripMenuItem.Name = "splitHorizontallyToolStripMenuItem";
+            this.splitHorizontallyToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.splitHorizontallyToolStripMenuItem.Text = "Split Horizontally";
+            this.splitHorizontallyToolStripMenuItem.Click += new System.EventHandler(this.splitHorizontallyToolStripMenuItem_Click);
+            // 
             // minimizeToolStripMenuItem
             // 
             this.minimizeToolStripMenuItem.Name = "minimizeToolStripMenuItem";
-            this.minimizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.minimizeToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.minimizeToolStripMenuItem.Text = "Minimize";
             this.minimizeToolStripMenuItem.Click += new System.EventHandler(this.minimizeToolStripMenuItem_Click);
             // 
             // restoreToolStripMenuItem
             // 
             this.restoreToolStripMenuItem.Name = "restoreToolStripMenuItem";
-            this.restoreToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.restoreToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.restoreToolStripMenuItem.Text = "Restore";
             this.restoreToolStripMenuItem.Click += new System.EventHandler(this.restoreToolStripMenuItem_Click);
+            // 
+            // loadLayoutFromFileButton
+            // 
+            this.loadLayoutFromFileButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.loadLayoutFromFileButton.Location = new System.Drawing.Point(213, 376);
+            this.loadLayoutFromFileButton.Name = "loadLayoutFromFileButton";
+            this.loadLayoutFromFileButton.Size = new System.Drawing.Size(121, 23);
+            this.loadLayoutFromFileButton.TabIndex = 4;
+            this.loadLayoutFromFileButton.Text = "Load Layout from File";
+            this.loadLayoutFromFileButton.UseVisualStyleBackColor = true;
+            this.loadLayoutFromFileButton.Click += new System.EventHandler(this.loadLayoutFromFileButton_Click);
+            // 
+            // saveLayoutAsFileButton
+            // 
+            this.saveLayoutAsFileButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.saveLayoutAsFileButton.Location = new System.Drawing.Point(213, 347);
+            this.saveLayoutAsFileButton.Name = "saveLayoutAsFileButton";
+            this.saveLayoutAsFileButton.Size = new System.Drawing.Size(121, 23);
+            this.saveLayoutAsFileButton.TabIndex = 3;
+            this.saveLayoutAsFileButton.Text = "Save Layout as File";
+            this.saveLayoutAsFileButton.UseVisualStyleBackColor = true;
+            this.saveLayoutAsFileButton.Click += new System.EventHandler(this.saveLayoutAsFileButton_Click);
+            // 
+            // applyCurrentSettingsToolStripMenuItem
+            // 
+            this.applyCurrentSettingsToolStripMenuItem.Name = "applyCurrentSettingsToolStripMenuItem";
+            this.applyCurrentSettingsToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.applyCurrentSettingsToolStripMenuItem.Text = "Apply Current Settings";
+            this.applyCurrentSettingsToolStripMenuItem.Click += new System.EventHandler(this.applyCurrentSettingsToolStripMenuItem_Click);
+            // 
+            // spreadAcrossAllScreensToolStripMenuItem
+            // 
+            this.spreadAcrossAllScreensToolStripMenuItem.Name = "spreadAcrossAllScreensToolStripMenuItem";
+            this.spreadAcrossAllScreensToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.spreadAcrossAllScreensToolStripMenuItem.Text = "Spread Across All Screens";
+            this.spreadAcrossAllScreensToolStripMenuItem.Click += new System.EventHandler(this.spreadAcrossAllScreensToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -239,6 +257,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Bottom;
         private System.Windows.Forms.ToolStripMenuItem minimizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem restoreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem applyCurrentSettingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem spreadAcrossAllScreensToolStripMenuItem;
     }
 }
 
