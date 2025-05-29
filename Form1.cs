@@ -327,8 +327,8 @@ namespace WindowMover
                     RECT windowRectangle = new RECT();
                     windowRectangle.Left = Screen.AllScreens.Min(selector=>selector.Bounds.Left);
                     windowRectangle.Top = 0;
-                    windowRectangle.Right = Screen.AllScreens.Sum(selector=>selector.Bounds.Right);
-                    windowRectangle.Bottom = Screen.PrimaryScreen.WorkingArea.Height;
+                    windowRectangle.Right = Screen.AllScreens.Sum(selector=>selector.Bounds.Width);
+                    windowRectangle.Bottom = Screen.FromHandle(this.Handle).WorkingArea.Height;
                     MoveSpecificWindow(handle, windowRectangle.Left, windowRectangle.Top, windowRectangle.Right, windowRectangle.Bottom);
 
                 }
